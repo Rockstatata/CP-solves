@@ -7,19 +7,20 @@ int main(){
     cin.tie(0);
     int n,x,y,w,z,count=0;
     cin>>n;
-    //pair<pair<int,int>,pair<int,int>>p;
-    for(int i = 0;i<n;i+=2){
+    vector<pair<int,int>>v;
+    pair<int,int>p;
+    for(int i = 0;i<n;i++){
         cin>>x>>y;
-        cin>>w>>z;
-        if(x<w && y>z){
-            count+=2;
+        p.first=x;
+        p.second=y;
+        v.push_back(p);
+    }
+    sort(v.begin(),v.end());
+    for(int i = 1;i<n;i++){
+        if(v[i].second<v[i-1].second){
+            cout<<"Happy Alex"<<endl;
+            return 0;
         }
     }
-    if(n==count){
-        cout<<"Happy Alex"<<endl;
-    }
-    else{
-        cout<<"Poor Alex"<<endl;
-    }
-
+    cout<<"Poor Alex"<<endl;
 }
