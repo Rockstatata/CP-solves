@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "MLTable": "yaml",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "ostream": "cpp"
     }
 }
