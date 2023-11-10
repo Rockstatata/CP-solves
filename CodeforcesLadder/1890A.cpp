@@ -2,26 +2,38 @@
  
 using namespace std;
 
-int pref[100001] {};
-
 void solve(){
-    int n;
-    cin>>n;
-    int num[n];
-    for(int i = 0;i<n;i++){
-        cin>>num[i];
-        pref[num[i]]++;
+   int n;
+    cin >> n;
+    map<int, int> st;
+    for(int i =1 ; i <= n; i++) {
+        int x; cin >> x;
+        st[x]++;
     }
-    if(n==2){
-        cout<<"YES"<<endl;
+ 
+    if(st.size() == 1) {
+        cout << "Yes\n";
     }
-    else{
-        int count = 0;
-        for(int i = 0;i<100000;i++){
-            count++;
+    else if(st.size() == 2) {
+        int val = st.begin()->second;
+        if(n % 2 == 0) {
+            if(val == n / 2) {
+                cout << "Yes\n";
+            }
+            else {
+                cout << "No\n";
+            }
         }
-        
+        else {
+            if(val == n / 2 || val == n / 2 + 1) {
+                cout << "Yes\n";
+            }
+            else {
+                cout << "No\n";
+            }
+        }
     }
+    else cout << "No\n";
 }
  
 int main(){
