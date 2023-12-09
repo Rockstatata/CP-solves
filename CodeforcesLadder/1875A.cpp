@@ -1,12 +1,4 @@
-#pragma GCC optimize("Ofast")
-#pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,avx2,fma")
-#pragma GCC optimize("unroll-loops")
 #include <bits/stdc++.h> 
-#include <chrono>
-#include <random>
-#include <iostream>
-#include <cmath>
-#include <fstream>
  
 using namespace std;
  
@@ -41,25 +33,38 @@ double eps = 1e-12;
  
 
 void solve(){
-    int n;
-    char c;
-    cin>>n>>c;
-    string s;
-    cin>>s;
-    s+=s;
-    vector<int>a;
-    int b,n=s.length();
-    forn(i,n/2){
-        if(s[i]==c){
-            a.pb(i);
-        }
+    ll a,b,n,cnt=0,x;
+    cin>>a>>b>>n;
+    vector<ll>v;
+    for(ll i = 0;i<n;i++){
+        cin>>x;
+        v.push_back(x);
     }
-    forn(i,)
+    sort(v.rbegin(),v.rend());
+    while(b!=0){
+        cnt+=(b-1);
+        b=1;
+        if(!v.empty()){
+            if(b+v.back()>=a){
+                b=a;
+            }
+            else{
+                b+=v.back();
+            }
+            v.pop_back();
+        }
+        else{
+            b=0;
+        }
+        
+    }
+    cout<<cnt+1<<endl;
 }
+
 int main()
 {
  fast_cin();
- ll t=1;
+ ll t;
  cin >> t;
  for(int it=1;it<=t;it++) {
      //cout << "Case #" << it+1 << ": ";
