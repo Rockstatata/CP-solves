@@ -134,7 +134,8 @@ Node* kReverse(Node* head, int k){
         // starts from the head
         if(temp == head){
             head = kThNode;
-        }else{
+        }
+        else{
             // Link the last node of the previous
             // group to the reversed group
             prevLast -> next = kThNode; 

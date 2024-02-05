@@ -1,122 +1,245 @@
-//************************ genSkipL.h ************************
-// generic skip list class
+#include<bits/stdc++.h>
+ 
+using namespace std;
 
-const int maxLevel = 4;
+const int maxNumberOfLevel = 5; // Maximum Level of the skip list
 
-template<class T>
-class SkipListNode {
+class Node 
+{
 public:
-    SkipListNode() {
-    }
-    T key;
-    SkipListNode **next;
+
+    int data;
+    vector<Node*> next;     // To maintain the levels of the skip list
+    Node(int data, int Level) : data(data), next(Level + 1, nullptr) {} // declaring the data and the level of the node 
 };
 
-template<class T>
-class SkipList {
-public:
-    SkipList();
-    bool isEmpty() const;
-    void choosePowers();
-    int chooseLevel();
-    T* skipListSearch(const T&);
-    void skipListInsert(const T&);
+class skipList 
+{
 private:
-    typedef SkipListNode<T> *nodePtr;
-    nodePtr root[maxLevel];
-    int powers[maxLevel];
+    Node* head; 
+    int Level;
+
+public:
+    skipList();
+
+    void insert(int data);  // To insert the value 
+    void remove(int data);  // To delete the value
+    bool search(int data);  // To search for a value
+    void display();         // Function to display a skip List
+
 };
 
-template<class T>
-SkipList<T>::SkipList() {
-    for (int i = 0; i < maxLevel; i++)
-        root[i] = 0;
+skipList:: skipList() 
+{
+    head = new Node(0, maxNumberOfLevel);    // Initializing the skip list with the max number of levels
+
+    Level = 0;                               // At start the level is 0
+
 }
 
-template<class T>
-bool SkipList<T>::isEmpty() const {
-    return root[0] == 0;
+
+
+void skipList::insert(int data) 
+{
+    int newLevel = 0; 
+
+
+    // Deciding the level of inserting node on the basis of coin toss
+
+    while (newLevel < maxNumberOfLevel and (rand() % 2) == 1) // here rand()%2 is doing the coin toss
+    {
+        newLevel++;
+    } 
+    // Resizing the size of the levels to make place for the inserting value
+
+    if (Level < newLevel) 
+    {
+        head->next.resize(newLevel + 1, nullptr);
+        
+        Level = newLevel;
+    }
+
+
+    Node* current = head; // pointer to the head to traverse through the skip list
+
+
+    vector<Node*> Update(Level + 1, nullptr); // To store the update node at eah level
+
+    // Loop over the levels upto which we want the value to be inserted
+
+    for (int i = Level; i >= 0; i--) 
+    {
+        // Finding the place for the inserting value
+
+        while (current->next[i] and current->next[i]->data < data) 
+        {
+            current = current->next[i];
+        }
+        // Updating the level accordingly
+
+        Update[i] = current;
+
+    }
+
+    current = current->next[0];   // Moves the current to the next node at level 0 
+
+    if (current == nullptr or current->data != data) // if the current is null then it does not exit we need to insert the value
+    {
+        Node* newNode = new Node(data, Level);
+
+        for (int i = 0; i <= newLevel; i++) 
+        {
+            newNode->next[i] = Update[i]->next[i];
+
+            Update[i]->next[i] = newNode;  // To insert the value at each level
+
+        }
+
+        cout << "Element " << data << " inserted successfully.\n";
+    }
+    else
+    {
+        cout << "Element " << data << " already exists.\n";  // Incase if value already exists
+    }
 }
 
-template<class T>
-void SkipList<T>::choosePowers() {
-    powers[maxLevel-1] = (2 << (maxLevel-1)) - 1; // 2^maxLevel - 1
-    for (int i = maxLevel - 2, j = 0; i > = 0; i--, j++)
-    powers[i] = powers[i+1] - (2 << j); // 2^(j+1)
-}
 
-template<class T>
-int SkipList<T>::chooseLevel() {
-    int i, r = rand() % powers[maxLevel-1] + 1;
-    for (i = 1; i < maxLevel; i++)
-    if (r < powers[i])
-    return i-1; // return a level < the highest level;
-    return i-1; // return the highest level;
-}
+void skipList::remove(int data) 
+{
+    // Function to remove value
+    Node* current = head; // start by setting a current pointer to the head node 
 
-template<class T>
-T* SkipList<T>::skipListSearch(const T& key) {
-    if (isEmpty()) return 0;
-    nodePtr prev, curr;
-    int lvl; // find the highest non-null
-    for (lvl = maxLevel-1; lvl >= 0 && !root[lvl]; lvl--); // level;
-        prev = curr = root[lvl];
-    while (true) {
-        if (key == curr->key)	 // success if equal;
-            return &curr->key;
-        else if (key < curr->key) {	 // if smaller, go down
-            if (lvl == 0)	 // if possible,
-                return 0;
-            else if (curr == root[lvl])	 // by one level
-                curr = root[--lvl];	 // starting from the
-            else curr = *(prev->next + --lvl);	// predecessor which
-            } // can be the root;
-        else { // if greater,
-            prev = curr; // go to the next
-            if (*(curr->next + lvl) != 0)	 // non-null node
-                curr = *(curr->next + lvl);	 // on the same level
-            else { // or to a list on a
-                // lower level;
-                for (lvl--; lvl >= 0 && *(curr->next + lvl)==0; lvl--);
-                if (lvl >= 0)
-                    curr = *(curr->next + lvl);
-                else return 0;
+    vector<Node*> Update(Level + 1, nullptr); // Create an update vector to store the updated node at each level, Remember only those nodes will be updated where the value to be deleted is present.
+
+
+
+    for (int i = Level; i >= 0; i--)         
+    {
+        while (current->next[i] and current->next[i]->data < data) 
+        {
+            current = current->next[i];  
+        }
+
+        Update[i] = current;         // Update array is keeping the track, where the changes should be made, after deleting the node.
+    }
+
+    current = current->next[0];     // Set the current pointer to the next node at level 0.
+
+    if (current != nullptr and current->data == data) // If the value is present then delete the value
+    {
+        for (int i = 0; i <= Level; i++)      // Deleting the value from each level
+        {
+            // Setting the pointers
+            if (Update[i]->next[i] != current)
+            {
+                break;
+            }
+            else
+            {
+                Update[i]->next[i] = current->next[i];
             }
         }
+
+        delete current; // deleting the node
+
+        while (Level > 0 and head->next[Level] == nullptr)  // decrement the level variable incase there is not any value at that level
+        {
+            Level--;
+        }
+
+        cout << "Element " << data << " deleted successfully."<<endl;
+    }
+    else // Incase the value does not exist
+    {
+        cout << "Element " << data << " not found."<<endl;
     }
 }
 
-template<class T>
-void SkipList<T>::skipListInsert(const T& key) {
-    nodePtr curr[maxLevel], prev[maxLevel], newNode;
-    int lvl, i;
-    curr[maxLevel-1] = root[maxLevel-1];
-    prev[maxLevel-1] = 0;
-    for (lvl = maxLevel - 1; lvl >= 0; lvl--) {
-        while (curr[lvl] && curr[lvl]->key < key) { // go to the next
-            prev[lvl] = curr[lvl]; // if smaller;
-            curr[lvl] = *(curr[lvl]->next + lvl);
-        }
-        if (curr[lvl] && curr[lvl]->key == key) 	 // don’t include
-            return; // duplicates;
-        if (lvl > 0) // go one level down
-        if (prev[lvl] == 0) { // if not the lowest
-            curr[lvl-1] = root[lvl-1];	 // level, using a link
-            prev[lvl-1] = 0; // either from the root
-        }
-        else { // or from the predecessor;
-            curr[lvl-1] = *(prev[lvl]->next + lvl-1);
-            prev[lvl-1] = prev[lvl];
+
+bool skipList::search(int data) 
+{
+    Node* current = head;           // start by setting a current pointer to the head node to traverse through the skip list
+
+
+    for (int i = Level; i >= 0; i--) // Begin traversing from the top level and iteratively approaching the bottom of the skip list
+    {
+        while (current->next[i] and current->next[i]->data < data) // keep on moving forward if the value of the next node is less than the searching node otherwise  move downward (handled by outer for loop)
+        {
+            current = current->next[i]; // moving forward
+
         }
     }
-    lvl = chooseLevel(); // generate randomly level for newNode;
-    newNode = new SkipListNode<T>;
-    newNode->next = new nodePtr[sizeof(nodePtr) * (lvl+1)];
-    newNode->key = key;
-    for (i = 0; i <= lvl; i++) { // initialize next fields of
-        *(newNode->next + i) = curr[i]; // newNode and reset to newNode
-        if (prev[i] == 0) // either fields of the root
-            root[i] = newNode; // or next fields of newNode’s
-        else *(prev[i]->next + i) = newNode; // predecessors;
+
+    current = current->next[0]; // Move to the next of the node at level 0
+
+    if (current != nullptr && current->data == data) // if value is found
+    {
+        cout << "Element " << data << " found.\n";
+        return true;
     }
+    else  // Incase value does not exist
+    {
+        cout << "Element " << data << " not found.\n";
+        return false;
+    }
+}
+
+
+void skipList::display() 
+{
+
+    cout << "skip List:"<< endl;
+
+    for (int i = Level; i >= 0; i--) // 
+    {
+        Node* current = head->next[i]; // Initializes the pointer to the first node of that level
+
+        cout << "Level " << i << ": "; 
+
+        while (current != nullptr)       // Start displaying all the values present at that level
+        {
+            cout << current->data << " ";
+            current = current->next[i]; // Moving to the right of the node
+        }
+        cout << endl;
+    }
+}
+
+
+ 
+
+
+int main() 
+{
+
+    skipList SkipList; // Creating the skip List
+
+    // Inserting the Data in skip list
+
+    SkipList.insert(10);
+    SkipList.insert(20);
+    SkipList.insert(30);
+    SkipList.insert(40);
+    SkipList.insert(50);
+
+    // Display skip list after inserting the data
+
+    SkipList.display();
+
+    // Searching for the key
+
+    SkipList.search(20);
+    SkipList.search(40);
+
+
+    // Deleting the key
+
+    SkipList.remove(20);
+    SkipList.remove(40);
+
+    // Display the skip list after removing the data
+
+    SkipList.display();
+
+    return 0;
 }

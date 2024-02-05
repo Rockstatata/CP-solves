@@ -45,7 +45,7 @@ node* detectCycle(node* head) {
     node* slow = head;
     node* entry = head;
         
-    while(fast->next != NULL&&fast->next->next != NULL) {
+    while(fast->next != NULL && fast->next->next != NULL) {
         slow = slow->next;
         fast = fast->next->next;
             

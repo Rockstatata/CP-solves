@@ -25,6 +25,9 @@ public:
 	// Insert a node at the tail of the list
 	void insert_at_tail(int data);
 
+	// Insert a node at a position K from the head
+	void insert_at_pos(int k, int data);
+
 	// Delete a node from the head
 	// of the list
 	void delete_from_head();
@@ -36,8 +39,12 @@ public:
 	//Delete a particular number
 	void deleteoccurence(int data);
 
+	void deletepos(int k);
+
 	// Print the elements of the list
 	void print_list();
+
+	int get_length();
 };
 
 XORLinkedList::XORLinkedList()
@@ -90,6 +97,38 @@ void XORLinkedList::insert_at_tail(int data)
 	tail = new_node;
 }
 
+void XORLinkedList::insert_at_pos(int k,int data){
+	if(k==0){
+		insert_at_head(data);
+	}
+	else if(k==get_length()){
+		insert_at_tail(data);
+	}
+	else{
+		if(k<0 || k>get_length()){
+			std::cout<<"NOT POSSIBLE"<<std::endl;
+			return;
+		}
+		else{
+			Node* cur = head, *prev = NULL, *next = NULL;
+			Node* newnode = new Node;
+			newnode->data = data;
+			newnode->both = XOR(nullptr,nullptr);
+			while(k){
+				next = XOR(prev,cur->both);
+				prev = cur;
+				cur = next;
+				k--;
+			}
+			newnode->both = XOR(prev,cur);
+			prev->both = XOR(prev->both,cur);
+			prev->both = XOR(prev->both,newnode);
+			cur->both = XOR(cur->both,prev);
+			cur->both = XOR(cur->both,newnode);
+		}
+	}
+}
+
 void XORLinkedList::delete_from_head()
 {
 	if (head) {
@@ -128,6 +167,36 @@ void XORLinkedList::delete_from_tail()
 	}
 }
 
+void XORLinkedList::deletepos(int k){
+	if(k==0){
+		delete_from_head();
+	}
+	else if(k==get_length()){
+		delete_from_tail();
+	}
+	else{
+		if(k<0 || k>get_length()){
+			std::cout<<"NOT POSSIBLE"<<std::endl;
+			return;
+		}
+		else{
+			Node* cur = head, *prev = NULL, *next = NULL;
+			while(k){
+				next = XOR(prev,cur->both);
+				prev = cur;
+				cur = next;
+				k--;
+			}
+			next = XOR(prev,cur->both);
+			prev->both = XOR(prev->both,cur);
+			prev->both = XOR(prev->both,next);
+			next->both = XOR(next->both,cur);
+			next->both = XOR(next->both,prev);
+			delete cur;
+		}
+	}
+}
+
 void XORLinkedList::deleteoccurence(int data){
 	Node* cur = head;
 	Node* prev = nullptr,*next = nullptr;
@@ -158,6 +227,20 @@ void XORLinkedList::deleteoccurence(int data){
 	}
 }
 
+int XORLinkedList::get_length(){
+	Node* temp = head, *prev = nullptr;
+	int size = 0;
+	while(temp){
+		Node* next = XOR(prev,temp->both);
+		prev = temp;
+		temp = next;
+		size++;
+	}
+	return size;
+}
+
+
+
 void XORLinkedList::print_list()
 {
 	Node* current = head;
@@ -185,6 +268,10 @@ int main()
 	// prints 20 10 30 40
 	list.print_list();
 	list.deleteoccurence(40);
+	list.print_list();
+	list.insert_at_pos(1,3);
+	list.print_list();
+	list.deletepos(2);
 	list.print_list();
 	//list.delete_from_head();
 	// prints 10 30 40

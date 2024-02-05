@@ -186,9 +186,6 @@ public:
         return slow;
     }
 
-    
-    
-
 };
 
 
