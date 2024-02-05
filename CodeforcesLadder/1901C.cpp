@@ -1,6 +1,3 @@
-#pragma GCC optimize("Ofast")
-#pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,avx2,fma")
-#pragma GCC optimize("unroll-loops")
 #include <bits/stdc++.h> 
 #include <chrono>
 #include <random>
@@ -41,19 +38,25 @@ double eps = 1e-12;
  
 
 void solve(){
-    int n;
-    char c;
-    cin>>n>>c;
-    string s;
-    cin>>s;
-    s+=s;
-    vector<int>a;
-    int b,n=s.length();
-    forn(i,n/2){
-        if(s[i]==c){
-            a.pb(i);
+        int n;
+        cin >> n;
+        vector<int> a(n);
+        for(int &i: a) cin >> i;
+        sort(all(a));
+        int dif = a.back() - a.front();
+        int ans = 0;
+        while(dif){
+            ans++;
+            dif/=2;
         }
-    }
+        cout << ans << "\n";
+        if(ans <= n){
+            for(int i = 0; i < ans; i++){
+                if(i != 0) cout << " ";
+                cout << a.front();
+            }
+            cout << "\n";
+        }
 }
 int main()
 {
@@ -61,7 +64,7 @@ int main()
  ll t=1;
  cin >> t;
  for(int it=1;it<=t;it++) {
-     //cout << "Case #" << it+1 << ": ";
+    //cout << "Case #" << it+1 << ": ";
      solve();
  }
  return 0;

@@ -1,12 +1,5 @@
-#pragma GCC optimize("Ofast")
-#pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,avx2,fma")
-#pragma GCC optimize("unroll-loops")
 #include <bits/stdc++.h> 
-#include <chrono>
-#include <random>
-#include <iostream>
-#include <cmath>
-#include <fstream>
+
  
 using namespace std;
  
@@ -41,19 +34,24 @@ double eps = 1e-12;
  
 
 void solve(){
-    int n;
-    char c;
-    cin>>n>>c;
-    string s;
-    cin>>s;
-    s+=s;
-    vector<int>a;
-    int b,n=s.length();
-    forn(i,n/2){
-        if(s[i]==c){
-            a.pb(i);
+    int a,b,xk,yk,xq,yq,cnt=0;
+    cin>>a>>b>>xk>>yk>>xq>>yq;
+    set<pair<int,int>>movesk{
+        {xk+a,yk+b},{xk+a,yk-b},{xk-a,yk+b},{xk-a,yk-b},{xk+b,yk+a},{xk-b,yk+a},{xk+b,yk-a},{xk-b,yk-a}
+    };
+    set<pair<int,int>>movesq{
+        {xq+a,yq+b},{xq+a,yq-b},{xq-a,yq+b},{xq-a,yq-b},{xq+b,yq+a},{xq-b,yq+a},{xq+b,yq-a},{xq-b,yq-a}
+    };
+    for(auto i:movesk){
+        for(auto j:movesq){
+            if(i.first==j.first){
+                if(i.second==j.second){
+                    cnt++;
+                }
+            }
         }
     }
+    printf("%d\n",cnt);
 }
 int main()
 {
@@ -61,7 +59,7 @@ int main()
  ll t=1;
  cin >> t;
  for(int it=1;it<=t;it++) {
-     //cout << "Case #" << it+1 << ": ";
+    //cout << "Case #" << it+1 << ": ";
      solve();
  }
  return 0;

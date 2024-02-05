@@ -41,18 +41,8 @@ double eps = 1e-12;
  
 
 void solve(){
-    int n;
-    char c;
-    cin>>n>>c;
-    string s;
-    cin>>s;
-    s+=s;
-    vector<int>a;
-    int b,n=s.length();
-    forn(i,n/2){
-        if(s[i]==c){
-            a.pb(i);
-        }
+    for(int i = 1;i<=2520;i++){
+        
     }
 }
 int main()
@@ -61,7 +51,7 @@ int main()
  ll t=1;
  cin >> t;
  for(int it=1;it<=t;it++) {
-     //cout << "Case #" << it+1 << ": ";
+    //cout << "Case #" << it+1 << ": ";
      solve();
  }
  return 0;

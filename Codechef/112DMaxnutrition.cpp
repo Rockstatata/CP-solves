@@ -1,6 +1,3 @@
-#pragma GCC optimize("Ofast")
-#pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,avx2,fma")
-#pragma GCC optimize("unroll-loops")
 #include <bits/stdc++.h> 
 #include <chrono>
 #include <random>
@@ -41,19 +38,34 @@ double eps = 1e-12;
  
 
 void solve(){
-    int n;
-    char c;
-    cin>>n>>c;
-    string s;
-    cin>>s;
-    s+=s;
-    vector<int>a;
-    int b,n=s.length();
-    forn(i,n/2){
-        if(s[i]==c){
-            a.pb(i);
-        }
+    int n,total=0;
+    cin>>n;
+    int food[n],nutrition[n];
+    for(int i = 0;i<n;i++){
+        cin>>food[i];
     }
+    for(int i = 0;i<n;i++){
+        cin>>nutrition[i];
+    }
+    vector<pair<int,int>>foods;
+    int cnt[n+1] {0};
+    for(int i = 0;i<n;i++){
+        foods.push_back({nutrition[i],food[i]});
+    }
+    sort(foods.rbegin(),foods.rend());
+    for(int i = 0;i<n;i++){
+        if(cnt[foods[i].second]==1){
+            continue;
+        }
+        if(foods[i].first < 0){
+            continue;
+        }
+        total+=foods[i].first;
+        cnt[foods[i].second]++;
+    }
+    
+    cout<<total<<endl;
+
 }
 int main()
 {
@@ -61,7 +73,7 @@ int main()
  ll t=1;
  cin >> t;
  for(int it=1;it<=t;it++) {
-     //cout << "Case #" << it+1 << ": ";
+    //cout << "Case #" << it+1 << ": ";
      solve();
  }
  return 0;
