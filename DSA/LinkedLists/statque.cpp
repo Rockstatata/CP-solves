@@ -10,165 +10,6 @@ struct node{
 };
 
 template<class T>
-class Stack{
-    node<T>* top;
-public:
-    Stack(){
-        top = NULL;
-    }
-
-    void push(const T& data){
-        node<T>* newnode = new node<T>;
-        if(newnode==NULL){
-            cout<<"STACK OVERFLOW"<<endl;
-            return;
-        }
-        newnode->data= data;
-        if(top==NULL){
-            top = newnode;
-            top->next = NULL;
-        }
-        else{
-            newnode->next = top;
-            top = newnode;
-        }
-    }
-
-    void pop(){
-        if(top==NULL){
-            cout<<"STACK UNDERFLOW"<<endl;
-            return;
-        }
-        node<T> *temp = top;
-        top = top->next;
-        delete temp;
-    }
-
-    bool empty(){
-        if(top==NULL){
-            return true;
-        }
-        return false;
-    }
-
-    T peek(){
-        if(!empty()){
-            return top->data;
-        }
-        return -1;
-    }
-
-    int size(){
-        node<T>* cur = top;
-        int size = 0;
-        while(cur!=NULL){
-            cur= cur->next;
-            size++;
-        }
-        return size;
-    }
-
-    void display(){
-        int sizet = size();
-        node<T>* cur = top;
-        while(sizet--){
-            cout<<cur->data<<" ";
-            cur=cur->next;
-        }
-        cout<<endl;
-    }
-
-    ~Stack(){
-        delete top;
-    }
-
-};
-
-template<class T>
-class Queue{
-    node<T> *head, *tail;
-public:
-    Queue(){
-        head=tail=NULL;
-    }
-
-    void enqueue(const T& data){
-        node<T> *newnode = new node<T>;
-        if(newnode==NULL){
-            cout<<"QUEUE OVERFLOW"<<endl;
-            return;
-        }
-        newnode->data = data;
-        if(head == NULL){
-            head = newnode;
-            tail = newnode;
-            tail->next = NULL;
-        }
-        else{
-            tail->next = newnode;
-            tail = newnode;
-            newnode->next = NULL;
-        }
-    }
-
-    void dequeue(){
-        if(head==NULL){
-            cout<<"QUEUE UNDERFLOW"<<endl;
-            return;
-        }
-        node<T> *temp = head;
-        head = head->next;
-        if(head==NULL){
-            tail = NULL;
-        }
-        delete temp;
-    }
-
-    bool empty(){
-        if(head==NULL){
-            return true;
-        }
-        return false;
-    }
-
-    T front(){
-        return head->data;
-    }
-
-    T back(){
-        return tail->data;
-    }
-
-    int size(){
-        int sizet = 0;
-        if(empty()){
-            return 0;
-        }
-        node<T>* cur = head;
-        while(cur!=NULL){
-            cur= cur->next;
-            sizet++;
-        }
-        return sizet;
-    }
-
-    void display(){
-        int sizet = size();
-        node<T>* cur = head;
-        while(sizet--){
-            cout<<cur->data<<" ";
-            cur=cur->next;
-        }
-        cout<<endl;
-    }
-
-    ~Queue(){
-        delete head;
-        delete tail;
-    }
-};
-
-template<class T>
 class Dequeue{
     node<T>* head, *tail;
 public:
@@ -296,6 +137,179 @@ public:
         cout<<endl;
     }
 };
+
+template<class T>
+class Stack: protected Dequeue<T>{
+    node<T>* top;
+public:
+    Stack(){
+        top = NULL;
+    }
+
+    void push(const T& data){
+        this->push_back(data);
+        // node<T>* newnode = new node<T>;
+        // if(newnode==NULL){
+        //     cout<<"STACK OVERFLOW"<<endl;
+        //     return;
+        // }
+        // newnode->data= data;
+        // if(top==NULL){
+        //     top = newnode;
+        //     top->next = NULL;
+        // }
+        // else{
+        //     newnode->next = top;
+        //     top = newnode;
+        // }
+    }
+
+    void pop(){
+        this->pop_back();
+        // if(top==NULL){
+        //     cout<<"STACK UNDERFLOW"<<endl;
+        //     return;
+        // }
+        // node<T> *temp = top;
+        // top = top->next;
+        // delete temp;
+    }
+
+    bool empty(){
+        //this->empty();
+        if(top==NULL){
+            return true;
+        }
+        return false;
+    }
+
+    T peek(){
+        if(!empty()){
+            return top->data;
+        }
+        return -1;
+    }
+
+    int size(){
+        //this->size();
+        node<T>* cur = top;
+        int size = 0;
+        while(cur!=NULL){
+            cur= cur->next;
+            size++;
+        }
+        return size;
+    }
+
+    void display(){
+        this->display();
+        // int sizet = size();
+        // node<T>* cur = top;
+        // while(sizet--){
+        //     cout<<cur->data<<" ";
+        //     cur=cur->next;
+        // }
+        // cout<<endl;
+    }
+
+    ~Stack(){
+        delete top;
+    }
+
+};
+
+template<class T>
+class Queue:protected Dequeue<T>{
+    node<T> *head, *tail;
+public:
+    Queue(){
+        head=tail=NULL;
+    }
+
+    void enqueue(const T& data){
+        this->push_back(data);
+        // node<T> *newnode = new node<T>;
+        // if(newnode==NULL){
+        //     cout<<"QUEUE OVERFLOW"<<endl;
+        //     return;
+        // }
+        // newnode->data = data;
+        // if(head == NULL){
+        //     head = newnode;
+        //     tail = newnode;
+        //     tail->next = NULL;
+        // }
+        // else{
+        //     tail->next = newnode;
+        //     tail = newnode;
+        //     newnode->next = NULL;
+        // }
+    }
+
+    void dequeue(){
+        this->pop_front();
+        // if(head==NULL){
+        //     cout<<"QUEUE UNDERFLOW"<<endl;
+        //     return;
+        // }
+        // node<T> *temp = head;
+        // head = head->next;
+        // if(head==NULL){
+        //     tail = NULL;
+        // }
+        // delete temp;
+    }
+
+    bool empty(){
+        //this->empty();
+        if(head==NULL){
+            return true;
+        }
+        return false;
+    }
+
+    T front(){
+        //this->front();
+        return head->data;
+    }
+
+    T back(){
+        //this->back();
+        return tail->data;
+    }
+
+    int size(){
+        //this->size();
+        int sizet = 0;
+        if(empty()){
+            return 0;
+        }
+        node<T>* cur = head;
+        while(cur!=NULL){
+            cur= cur->next;
+            sizet++;
+        }
+        return sizet;
+    }
+
+    void display(){
+        this->display();
+        // int sizet = size();
+        // node<T>* cur = head;
+        // while(sizet--){
+        //     cout<<cur->data<<" ";
+        //     cur=cur->next;
+        // }
+        // cout<<endl;
+    }
+
+    ~Queue(){
+        delete head;
+        delete tail;
+    }
+};
+
+
 
 int precedence(char c){
     if(c=='*' || c=='/'){
