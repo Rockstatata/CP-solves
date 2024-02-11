@@ -7,6 +7,7 @@ vector<int>graph[N];
 
 int vis[N] {0};
 int level[N] {0};
+vector<int>removeedge;
 
 void dfs(int n){
     vis[n] = 1;
@@ -29,8 +30,15 @@ void bfs(int n){
             vis[n]=1;
         }
         for(int child:graph[cur_v]){
+            if(vis[child]){
+                if(level[cur_v]==level[child]){
+                    removeedge.push_back(cur_v);
+                    removeedge.push_back(child);
+                }
+            }
             if(!vis[child]){
                 q.push(child);
+                cout<<child<<" ";
                 vis[child]=1;
                 level[child] = level[cur_v]+1;
             }
@@ -51,17 +59,11 @@ int main(){
     }
 
     vector<int>count;
-    for(int i = 1;i<=n;i++){
-        if(vis[i]) continue;
-         bfs(i);
-        count.push_back(i);
-    }
-    cout<<"edge needed: "<<count.size()-1<<endl;
-    for(int i = 0;i<count.size()-1;i++){
-        cout<<count[i]<<" "<<count[i+1]<<endl;
-    }
-    for(int i = 1;i<=n;i++){
-        cout<<i<<": "<<level[i]<<endl;
-    }
+    
+    bfs(1);
 
+    cout<<"Edge remove: "<<removeedge.size()/4<<endl;
+    for(int i = 0;i<removeedge.size()-1;i+=4){
+        cout<<removeedge[i]<<" "<<removeedge[i+1]<<endl;
+    }
 }
