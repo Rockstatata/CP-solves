@@ -3,28 +3,19 @@
 using namespace std;
 
 vector<int> RearrangebySign(vector<int>& A, int n){
-    int neg = 0, pos = 0,count = 1;
-    vector<int> ans;
-    ans.push_back(A[0]);
-    for(int i =1;i<n;){
-        if(A[i]<0 && count%2){
-            ans.push_back(A[i]);
-            count++;
+    int neg = 1, pos = 0,count = 1;
+    vector<int> ans(n,0);
+    for(int i =0;i<n;i++){
+        if(A[i]<0){
+            ans[neg]=A[i];
+            neg+=2;
         }
-        else if(A[i]>0 && count%2==0){
-            ans.push_back(A[i]);
-            count++;
-            i = pos;
-        }
-        else{
-            if(A[i]<0){
-                if(neg==0)neg = i;
-            }
-            if(A[i]>0){
-                if(pos==0)pos = i;
-            }
+        else if(A[i]>0){
+            ans[pos]=A[i];
+            pos+=2;
         }
     }
+    return ans;
 }
  
 int main() {
