@@ -1,3 +1,5 @@
+// Edges to make connected components one component
+
 #include<bits/stdc++.h>
  
 using namespace std;
