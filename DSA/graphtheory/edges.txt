@@ -95,3 +95,6 @@ Cycle
 3 6
 5 7
 6 7
+
+Bipartite
+8 8
