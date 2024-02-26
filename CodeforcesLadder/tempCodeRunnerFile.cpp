@@ -1,55 +1,101 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h> 
+#include <chrono>
+#include <random>
+#include <iostream>
+#include <cmath>
+#include <fstream>
  
 using namespace std;
  
-int main(){
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
-    int t;
-    cin>>t;
-    while(t--){
-        int n;
-        cin>>n;
-        int arr[n];
-        long long sum = 0,avg = 0,temp=0,flag=0,flag2=0;
-        for(int i=  0;i<n;i++){
-            cin>>arr[i];
-            sum+=arr[i];
-        }
-        if(n==1){
-            cout<<"YES"<<endl;
-        }
-        else{
-            avg = sum / n;
-            int i = 0,j= n-1;
-            while(i<=j){
-                if(arr[i]>avg){
-                    if(temp>=0){
-                        temp+=(arr[i]-avg);
-                        flag2=1;
-                    }
-                    arr[i]=avg;
-                }
-                else{
-                    if(temp>=0){
-                        temp-=(avg-arr[i]);
-                        flag2=1;
-                    }
-                    arr[i]=avg;
-                }
-                i++;
-            }
-            for(int i = 0;i<n;i++){
-                if(arr[i]!=avg){
-                    flag = 1;
-                    break;
-                }
-            }
-            if(!flag && temp==0 && flag2) cout<<"YES"<<endl;
-            else if(flag==0 || temp!=0){
-                cout<<"NO"<<endl;
-            }
-        }
-        
-    }   
+typedef long long ll;
+typedef long double ld;
+typedef pair<int,int> p32;
+typedef pair<ll,ll> p64;
+typedef pair<double,double> pdd;
+typedef vector<ll> v64;
+typedef vector<int> v32;
+typedef vector<vector<int> > vv32;
+typedef vector<vector<ll> > vv64;
+typedef vector<vector<p64> > vvp64;
+typedef vector<p64> vp64;
+typedef vector<p32> vp32;
+ll MOD = 998244353;
+double eps = 1e-12;
+#define forn(i,e) for(ll i = 0; i < e; i++)
+#define forsn(i,s,e) for(ll i = s; i < e; i++)
+#define rforn(i,s) for(ll i = s; i >= 0; i--)
+#define rforsn(i,s,e) for(ll i = s; i >= e; i--)
+#define ln "\n"
+#define dbg(x) cout<<#x<<" = "<<x<<ln
+#define mp make_pair
+#define pb push_back
+#define fi first
+#define se second
+#define INF 2e18
+#define fast_cin() ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL)
+#define all(x) (x).begin(), (x).end()
+#define sz(x) ((ll)(x).size())
+ 
+
+void solve(){
+    ll n;
+    cin>>n;
+    char trump;
+    cin>>trump;
+    unordered_map<char,vector<int>>mp;
+    for(int i = 0;i<n*2;i++){
+        string s;
+        cin>>s;
+        mp[s[1]].push_back(s[0]-'0');
+    }
+    sort(mp['C'].begin(),mp['C'].end());
+    sort(mp['D'].begin(),mp['D'].end());
+    sort(mp['H'].begin(),mp['H'].end());
+    sort(mp['S'].begin(),mp['S'].end());
+    if(mp['C'].size()%2+mp['D'].size()%2+mp['H'].size()%2+mp['S'].size()%2-mp[trump].size()%2 > mp[trump].size()){
+        cout<<"IMPOSSIBLE"<<endl;
+        return;
+    }
+
+    for(int i = 0;'C'!=trump && i+1<mp['C'].size();i+=2){
+        cout<<mp['C'][i]<<"C "<<mp['C'][i+1]<<"C"<<endl;
+    }
+    for(int i = 0;'D'!=trump && i+1<mp['D'].size();i+=2){
+        cout<<mp['D'][i]<<"C "<<mp['D'][i+1]<<"D"<<endl;
+    }
+    for(int i = 0;'H'!=trump && i+1<mp['H'].size();i+=2){
+        cout<<mp['H'][i]<<"H "<<mp['H'][i+1]<<"H"<<endl;
+    }
+    for(int i = 0;'S'!=trump && i+1<mp['S'].size();i+=2){
+        cout<<mp['S'][i]<<"S "<<mp['S'][i+1]<<"S"<<endl;
+    }
+    int i = 0;
+    if('C'!=trump && mp['C'].size()%2){
+        cout<<mp['C'].back()<<"C "<<mp[trump][i++]<<trump<<endl;
+    }
+    if('D'!=trump && mp['D'].size()%2){
+        cout<<mp['D'].back()<<"D "<<mp[trump][i++]<<trump<<endl;
+    }
+    if('H'!=trump && mp['H'].size()%2){
+        cout<<mp['H'].back()<<"H "<<mp[trump][i++]<<trump<<endl;
+    }
+    if('S'!=trump && mp['S'].size()%2){
+        cout<<mp['S'].back()<<"S "<<mp[trump][i++]<<trump<<endl;
+    }
+    while(i<mp[trump].size()){
+        cout<<mp[trump][i]<<trump<<" "<<mp[trump][i+1]<<trump<<endl;
+        i+=2;
+    }
+
+}
+int main()
+{
+ fast_cin();
+ ll t=1;
+ cin >> t;
+ for(int it=1;it<=t;it++) {
+    //cout << "Case #" << it+1 << ": ";
+     solve();
+ }
+ return 0;
 }
