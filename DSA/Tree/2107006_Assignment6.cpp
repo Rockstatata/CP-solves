@@ -1,4 +1,10 @@
+
+// 2107006 - Sarwad Hasan Siddiqui
+// Assignment - 6: Binary Tree & Traversal Iterator Class Making
+
+
 #include <bits/stdc++.h>
+
 using namespace std;
 
 template <class E>
@@ -41,15 +47,12 @@ public:
     int height()
     {
         if (this == nullptr)
-            return -1;
+            return 0;
 
-        int LH = left ? left->height() : -1;
-        int RH = right ? right->height() : -1;
+        int LH = left ? left->height() : 0;
+        int RH = right ? right->height() : 0;
 
-        if(LH>RH)
-            return 1+LH;
-        else
-            return 1+RH;
+        return 1+max(LH,RH);
     }
     E getValue()
     {
@@ -187,6 +190,16 @@ public:
             return !s.empty();
         }
 
+        bool quenext(){
+            return !elements.empty();
+        }
+
+        E quenextele(){
+            E cur = elements.front();
+            elements.pop();
+            return cur;
+        }
+
         E next()
         {
             cur = s.top();
@@ -199,6 +212,8 @@ public:
             }
             return cur->getValue();
         }
+
+        
     };
     bool isBSTUtil(BinaryTree<E>* root, BinaryTree<E>* min, BinaryTree<E>* max)
     {
@@ -230,6 +245,7 @@ public:
     }
 
 };
+
 template<class E>
 void extractInorder(BinaryTree<E>* root, vector<E>& inorder)
 {
@@ -265,7 +281,8 @@ int main()
     root->setRight(new BinaryTree<int>(30));
     root->getLeft()->setLeft(new BinaryTree<int>(6));
     root->getLeft()->setRight(new BinaryTree<int>(14));
-    root->getRight()->setRight(new BinaryTree<int>(44));
+    root->getRight()->setRight(new BinaryTree<int>(55));
+    root->getRight()->setLeft(new BinaryTree<int>(25));
 
     cout << "Height: " << root->height() << endl;
     if(root->isBalanced())
@@ -288,6 +305,22 @@ int main()
         cout << it.next() << " ";
     }
     cout << endl;
+
+    cout<< "Preorder traversal: ";
+    BinaryTree<int>::Iterator it2 = root->preorderIterator();
+    while (it2.quenext())
+    {
+        cout << it2.quenextele() << " ";
+    }
+    cout<<endl;
+
+    cout<< "Postorder traversal: ";
+    BinaryTree<int>::Iterator it3 = root->postorderIterator();
+    while (it3.quenext())
+    {
+        cout << it3.quenextele() << " ";
+    }
+    cout<<endl;
 
     BinaryTree<int>* balancedRoot = balance_tree(root);
     cout << "Balanced tree inorder traversal: ";

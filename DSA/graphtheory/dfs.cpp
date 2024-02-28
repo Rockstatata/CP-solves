@@ -18,7 +18,6 @@ void dfs(int vertex){
         // Take action on child before entering the child node 
         dfs(child);
         // Take action on child after exiting child node
-
     }
     // Take action on vertex before exiting the vertex
 

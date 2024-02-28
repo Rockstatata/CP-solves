@@ -4,9 +4,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-    
     void dfs(int node, int parent, vector<int> &vis,
-             vector<int> adj[], int tin[], int low[], vector<vector<int>> &bridges) {
+            vector<int> adj[], int tin[], int low[], vector<vector<int>> &bridges) {
         static int timer = 1;
         vis[node] = 1;
         tin[node] = low[node] = timer;
