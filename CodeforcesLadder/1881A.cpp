@@ -1,6 +1,3 @@
-#pragma GCC optimize("Ofast")
-#pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,avx2,fma")
-#pragma GCC optimize("unroll-loops")
 #include <bits/stdc++.h> 
 #include <complex>
 #include <queue>
@@ -59,6 +56,11 @@ void solve(){
     cin>>n>>m;
     cin>>a;
     cin>>b;
+    found=a.find(b);
+    if(found!=string::npos){
+        cout<<count<<endl;
+        return;
+    }
     while(true){
         a+=a;
         found = a.find(b);

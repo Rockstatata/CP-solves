@@ -53,43 +53,31 @@ double eps = 1e-12;
  
 int main()
 {
-#ifndef ONLINE_JUDGE
-   freopen("input.txt", "r", stdin);
-   freopen("output.txt", "w", stdout);
-#endif
    fast_cin();
    ll t;
    cin >> t;
    while(t--){
-       int n,count1=0,count2=0,pos1,pos2,i,j,k;
+       ll n,count1=1,count2=1,pos1,pos2,i,j,k;
        cin>>n;
        int arr[n];
        for(i = 0;i<n;i++){
         cin>>arr[i];
        }
-       for(i = 0;i<n;i++){
-        for(j=0;j<=i;j++){
-            if(arr[j]==2){
-                count1++;
-            }
+       i = 0, j = n-1;
+       count1 = arr[i], count2 = arr[j];
+       while(i<j){
+        if(j-i==1) break;
+        if(count1>=count2){
+            if(j!=i+1)j--;
+            count2*=arr[j];
         }
-        for(k=i+1;k<n;k++){
-            if(arr[k]==2){
-                count2++;
-            }
+        else{
+            if(i!=j-1)i++;
+            count1*=arr[i];
         }
-        if(count1==count2){
-            pos1=i+1;
-            break;
-        }
-        if(i==n-1){
-            pos1=-1;
-            break;
-        }
-        count1=0;
-        count2=0;
        }
-        cout<<pos1<<endl;
+       if(count1!=count2) cout<<-1<<endl;
+       else cout<<j<<endl;
    }
    return 0;
 }

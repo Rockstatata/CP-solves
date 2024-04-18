@@ -37,7 +37,7 @@ public:
         size--;
         arr = new int[size+1];
         for(int i = 0;i<=size;i++){
-            int x = temp[i];
+            
             arr[i] = temp[i];
         }
         delete temp;

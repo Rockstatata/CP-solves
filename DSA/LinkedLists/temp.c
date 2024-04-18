@@ -13,9 +13,9 @@ int main(){
         {
             c=pow(a,x)*pow(b,y);
             // printf("c==%d\n",c);
-            if(c<=l && l%c==0)
+            if(l%c==0)
             {
-                printf("y==%d\n",y);
+                //printf("y==%d\n",y);
                 //printf("c==%d\n",c);
                 count++;
             }

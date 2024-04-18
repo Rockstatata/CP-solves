@@ -127,8 +127,8 @@ public:
                 deletebegin();
             }
             else{
-                cur->prev->next = cur->next;
                 cur->next->prev = cur->prev;
+                cur->prev->next = cur->next;
                 delete cur;
             }
         } 
@@ -269,4 +269,11 @@ int main(){
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     doublylinkedlist<int> l1;
+    l1.insertBegin(1);
+    l1.insertEnd(2);
+    l1.insertEnd(3);
+    l1.insertEnd(4);
+    l1.display();
+    l1.deleteatposition(1);
+    l1.display();
 }

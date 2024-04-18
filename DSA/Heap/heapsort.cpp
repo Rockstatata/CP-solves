@@ -14,18 +14,14 @@ void insertheap(int H[],int n){
  
 int deleteheap(int H[],int n){
     int i,j,temp,val;
-    val = H[1];
-    H[1] = H[n];
-    H[n] = val;
+    swap(H[1],H[n]);
     i = 1, j = i*2;
     while(j<n-1){
         if(H[j+1]>H[j]){
             j=j+1;
         }
         if(H[i]<H[j]){
-            temp = H[i];
-            H[i] = H[j];
-            H[j] = temp;
+            swap(H[i],H[j]);
             i = j;
             j = 2*j;
         }
@@ -35,7 +31,7 @@ int deleteheap(int H[],int n){
 }
 
 void heapsort(int H[],int size){
-    for(int i = 2;i<size;i++){
+    for(int i = 1;i<size;i++){
         insertheap(H,i);
     }
     for(int i = size-1;i>1;i--){
@@ -49,17 +45,6 @@ int main(){
     cin.tie(0);
     int H[] = {0,2,5,8,9,4,10,7};
     int size = sizeof(H)/sizeof(H[0]);
-    // for(int i = 2;i<size;i++){
-    //     insertheap(H,i);
-    // }
-    // for(int i = 0;i<size;i++){
-    //     cout<<H[i]<<" ";
-    // }
-    // cout<<endl;
-    // for(int i = 1;i<size;i++){
-    //     int n = size-i;
-    //     deleteheap(H,n);
-    // }
     heapsort(H,size);
     for(int i = 1;i<size;i++){
         cout<<H[i]<<" ";

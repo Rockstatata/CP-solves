@@ -79,7 +79,7 @@ ll solve(){
             max = size;
         }
     }
-
+    
     return n-max;
 }
 int main()
