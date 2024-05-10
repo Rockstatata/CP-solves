@@ -3,7 +3,8 @@
  
 using namespace std;
 
-void merge(vector<int>&arr,int lb,int mid, int ub)
+
+void merge(int arr[],int lb,int mid, int ub)
 {
     int i=lb;
     int j=mid+1;
@@ -46,7 +47,7 @@ void merge(vector<int>&arr,int lb,int mid, int ub)
         arr[k]=b[k];
     }
 }
-void MergeSort(vector<int>&arr,int lb, int ub)
+void MergeSort(int arr[],int lb, int ub)
 {
     if(lb<ub)
     {
@@ -57,9 +58,12 @@ void MergeSort(vector<int>&arr,int lb, int ub)
     }
 }
 
-int MergeSortbase(vector<int>&arr, int size){
+int MergeSortbase(int arr[], int size){
 
-    vector<int>temp = arr;
+    int temp[size];
+    for(int i = 0;i<size;i++){
+        temp[i] = arr[i];
+    }
 
     auto start = chrono::high_resolution_clock::now();
 

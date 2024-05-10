@@ -3,7 +3,7 @@
  
 using namespace std;
 
-void heapify(vector<int>&arr, int n, int i)
+void heapify(int arr[], int n, int i)
 {
     int largest = i;
     int left = 2 * i + 1;
@@ -23,7 +23,7 @@ void heapify(vector<int>&arr, int n, int i)
     }
 }
 
-void HeapSort(vector<int>&arr, int size)
+void HeapSort(int arr[], int size)
 {
     
     for (int i = size / 2 - 1; i >= 0; i--)
@@ -39,9 +39,12 @@ void HeapSort(vector<int>&arr, int size)
     }
 }
 
-int HeapSortbase(vector<int>&arr, int size){
+int HeapSortbase(int arr[], int size){
 
-    vector<int>temp = arr;
+    int temp[size];
+    for(int i = 0;i<size;i++){
+        temp[i] = arr[i];
+    }
 
     auto start = chrono::high_resolution_clock::now();
 

@@ -3,25 +3,28 @@
  
 using namespace std;
 
-void InsertionSort(vector<int>&arr,int size)
+void InsertionSort(int arr[],int size)
 {
     int j=0;
     for(int i=1;i<size;i++)
     {
-        int temp=arr[i];
+        int tempo=arr[i];
         j=i-1;
-        while(j>0 && arr[j]>temp)
+        while(j>0 && arr[j]>tempo)
         {
             arr[j+1]=arr[j];
             j--;
         }
-        arr[j+1]=temp;
+        arr[j+1]=tempo;
     }
 }
 
-int InsertionSortbase(vector<int>&arr, int size){
+int InsertionSortbase(int arr[], int size){
 
-    vector<int>temp = arr;
+    int temp[size];
+    for(int i = 0;i<size;i++){
+        temp[i] = arr[i];
+    }
 
     auto start = chrono::high_resolution_clock::now();
 

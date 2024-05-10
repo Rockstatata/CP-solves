@@ -45,18 +45,16 @@ public:
     void insertBack(const T &value)
     {
         Node<T> *curr = new Node<T>;
-        curr->data = value; 
+        curr->data = value;
+        curr->next = nullptr; 
 
         if (head == NULL)
         {
             head = curr;
-            curr->next = nullptr;
             return;
             
         }
         Node<T> *temp = head;
-        
-        curr->next = nullptr;
 
         while (temp->next != NULL)
         {

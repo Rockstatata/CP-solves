@@ -3,7 +3,7 @@
  
 using namespace std;
 
-void SelectionSort(vector<int>&arr,int size)
+void SelectionSort(int arr[],int size)
 {
     for(int i=0;i<size;i++)
     {
@@ -22,9 +22,12 @@ void SelectionSort(vector<int>&arr,int size)
     }
 }
 
-int SelectionSortbase(vector<int>&arr, int size){
+int SelectionSortbase(int arr[], int size){
 
-    vector<int>temp = arr;
+    int temp[size];
+    for(int i = 0;i<size;i++){
+        temp[i] = arr[i];
+    }
 
     auto start = chrono::high_resolution_clock::now();
 

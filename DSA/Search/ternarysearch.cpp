@@ -42,7 +42,7 @@ int main(){
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     int arr[] {7,12,19,24,31,48,51,63,67,73,81,92};
-    int key = 49;
+    int key = 48;
     int l=0,r=11,res=-1;
     while(l<=r){
         int mid1=l+(r-l)/3;
@@ -70,5 +70,8 @@ int main(){
     }
     if(res==-1){
         cout<<"Not present"<<endl;
+    }
+    else{
+        cout<<"present"<<endl;
     }
 }

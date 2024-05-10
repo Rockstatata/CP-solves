@@ -107,6 +107,12 @@ public:
             return;
         }
         else{
+            // node<T>* cur = tail;
+            // tail = tail->prev;
+            // tail->next = NULL;
+            // delete cur;
+            // return;
+
             node<T>* cur = head;
             while(cur->next!=NULL){
                 cur = cur->next;
@@ -114,6 +120,7 @@ public:
             cur->prev->next = NULL;
             tail = cur->prev;
             delete cur;
+            return;
         }
     }
 
@@ -263,6 +270,10 @@ public:
 
     node<T>* gethead(){
         return head;
+    }
+
+    node<T>* gettail(){
+        return tail;
     }
 
 };

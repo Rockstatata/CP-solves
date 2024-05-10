@@ -107,7 +107,9 @@ int main()
            /     \
           30      70
          /  \    /  \
-       20   40  60   80 */
+       20   40  60   80
+               / \   / \
+              55 65 75  85 */
     Node* root = NULL;
     root = insert(root, 50);
     root = insert(root, 30);
@@ -116,6 +118,10 @@ int main()
     root = insert(root, 70);
     root = insert(root, 60);
     root = insert(root, 80);
+    root = insert(root, 55);
+    root = insert(root, 65);
+    root = insert(root, 75);
+    root = insert(root, 85);
 
     printf("Original BST: ");
     inorder(root);

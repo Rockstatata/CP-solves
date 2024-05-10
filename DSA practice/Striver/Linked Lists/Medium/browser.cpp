@@ -40,24 +40,15 @@ public:
         node* newnode = new node;
         newnode->data = s;
         newnode->prev = NULL;
-        if(base==tail){
-            tail->next = newnode;
-            newnode->prev = tail;
-            tail = newnode;
-            base = newnode;
+        while(tail!=base){
+            node *temp = tail;
+            tail=tail->prev;
+            delete temp; 
         }
-        else{
-            while(tail!=base){
-                node *temp = tail;
-                tail=tail->prev;
-                delete temp; 
-            }
-            tail->next = newnode;
-            newnode->prev = tail;
-            tail = newnode; 
-            base = newnode;
-        }
-        
+        tail->next = newnode;
+        newnode->prev = tail;
+        tail = newnode; 
+        base = newnode;  
     }
 
     void back(int k){

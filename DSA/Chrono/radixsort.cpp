@@ -3,10 +3,11 @@
  
 using namespace std;
 
-void countingSort(vector<int>&arr, int size, int place)
+void countingSort(int arr[], int size, int place)
 {
     const int max = 10;
-    vector<int> count(max,0),output(size);
+    int count [max] {0};
+    int output [size];
 
     for (int i = 0; i < size; i++)
         count[(arr[i] / place) % 10]++; // Calculate count of elements
@@ -24,7 +25,7 @@ void countingSort(vector<int>&arr, int size, int place)
 }
 
 
-void RadixSort(vector<int>&arr, int size)
+void RadixSort(int arr[], int size)
 {
     // Get maximum element
     int max = arr[0];
@@ -36,9 +37,11 @@ void RadixSort(vector<int>&arr, int size)
         countingSort(arr, size, place);
 }
 
-int RadixSortbase(vector<int>&arr, int size){
-
-    vector<int>temp = arr;
+int RadixSortbase(int arr[], int size){
+    int temp[size];
+    for(int i = 0;i<size;i++){
+        temp[i] = arr[i];
+    }
 
     auto start = chrono::high_resolution_clock::now();
 
@@ -49,5 +52,13 @@ int RadixSortbase(vector<int>&arr, int size){
     auto duration = chrono::duration_cast<chrono::microseconds>(end - start).count();
 
     return duration;
+}
+
+
+int main(){
+    int arr[] = {1,4,5,6,3,2,5,6,2,6,7,2,9,78,53,3,34,24,3,245,31,65,43};
+    int size = sizeof(arr)/sizeof(arr[0]);
+    RadixSort(arr,size);
+    
 }
  

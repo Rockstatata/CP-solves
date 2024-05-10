@@ -13,15 +13,15 @@ int partition(int A[],int l,int h)
 {
     int pivot;
     // First Element Pivoting
-    pivot=A[l];
+    //pivot=A[l];
 
     // Middle Element Pivoting
     int mid = (l+h)/2;
     pivot = A[mid];
 
     // Randomize Pivoting 
-    int rad = l+ (rand() % (h-l-1));
-    pivot = A[rad];
+    //int rad = l+ (rand() % (h-l-1));
+    //pivot = A[rad];
  
     int i=l,j=h;
     

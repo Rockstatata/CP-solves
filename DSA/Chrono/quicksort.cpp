@@ -3,43 +3,55 @@
  
 using namespace std;
 
-int partition(vector<int>&arr,int lb,int ub)
+
+int partition(int A[],int l,int h)
 {
-    int pivot=arr[lb];  // Let pivot be the first element of the array
-    int start=lb;
-    int end=ub;
-    while(start<end)
-    {
-        while(arr[start]<=pivot)
-        {
-            start++;    
-        }
-        while(arr[end]>pivot)
-        {
-            end--;
-        }
-        if(start<end)
-        {
-            swap(arr[start],arr[end]);
-        }
-    }
-    swap(arr[lb],arr[end]);         
-    return end;     
-}
+    int pivot;
 
-void QuickSort(vector<int>&arr,int lb,int ub)
+    // Middle Element Pivoting
+    int mid = (l+h)/2;
+    pivot = A[mid];
+ 
+    int i=l,j=h;
+    
+    do
+    {
+        do{
+            i++;
+        }
+        while(A[i]<=pivot);
+        do{
+            j--;
+        }
+        while(A[j]>pivot);
+        
+        if(i<j)swap(A[i],A[j]);
+    }
+    while(i<j);
+    
+    swap(A[l],A[j]);
+    return j;
+}
+void QuickSort(int A[],int l,int h)
 {
-    if(lb<ub)
-    {
-        int loc=partition(arr,lb,ub);
-        QuickSort(arr,lb,loc-1);
-        QuickSort(arr,loc+1,ub);
+    int j;
+    if(h==1){
+        return;
     }
-}
+    if(l<h)
+    {
+        j=partition(A,l,h);
+        QuickSort(A,l,j);
+        QuickSort(A,j+1,h);
+    }
+} 
 
-int QuickSortbase(vector<int>&arr, int size){
+int QuickSortbase(int arr[], int size){
 
-    vector<int>temp = arr;
+    int temp[size];
+    for(int i = 0;i<size;i++){
+        temp[i] = arr[i];
+    }
 
     auto start = chrono::high_resolution_clock::now();
 

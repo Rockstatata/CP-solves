@@ -1,100 +1,314 @@
 Elements: 1000
 
-Bubble Sort Sorted 1000 elements in 8978 microseconds.
-Insertion Sort Sorted 1000 elements in 2220 microseconds.
-Selection Sort Sorted 1000 elements in 3132 microseconds.
-Quick Sort Sorted 1000 elements in 221 microseconds.
-Merge Sort Sorted 1000 elements in 277 microseconds.
-Heap Sort Sorted 1000 elements in 404 microseconds.
-Count Sort Sorted 1000 elements in 57 microseconds.
-Radix Sort Sorted 1000 elements in 127 microseconds.
+Best Case Scenario:
+
+Bubble Sort Sorted 1000 elements in 4 microseconds.
+Insertion Sort Sorted 1000 elements in 5 microseconds.
+Selection Sort Sorted 1000 elements in 1105 microseconds.
+Quick Sort Sorted 1000 elements in 23 microseconds.
+Merge Sort Sorted 1000 elements in 52 microseconds.
+Heap Sort Sorted 1000 elements in 128 microseconds.
+Count Sort Sorted 1000 elements in 17 microseconds.
+Radix Sort Sorted 1000 elements in 43 microseconds.
+
+Worst Case Scenario:
+
+Bubble Sort Sorted 1000 elements in 4660 microseconds.
+Insertion Sort Sorted 1000 elements in 1440 microseconds.
+Selection Sort Sorted 1000 elements in 1176 microseconds.
+Quick Sort Sorted 1000 elements in 27 microseconds.
+Merge Sort Sorted 1000 elements in 56 microseconds.
+Heap Sort Sorted 1000 elements in 116 microseconds.
+Count Sort Sorted 1000 elements in 54 microseconds.
+Radix Sort Sorted 1000 elements in 73 microseconds.
+
+Average Case Scenario:
+
+Bubble Sort Sorted 1000 elements in 3402 microseconds.
+Insertion Sort Sorted 1000 elements in 688 microseconds.
+Selection Sort Sorted 1000 elements in 1073 microseconds.
+Quick Sort Sorted 1000 elements in 64 microseconds.
+Merge Sort Sorted 1000 elements in 88 microseconds.
+Heap Sort Sorted 1000 elements in 125 microseconds.
+Count Sort Sorted 1000 elements in 30 microseconds.
+Radix Sort Sorted 1000 elements in 57 microseconds.
+
 Elements: 5000
 
-Bubble Sort Sorted 5000 elements in 254916 microseconds.
-Insertion Sort Sorted 5000 elements in 57846 microseconds.
-Selection Sort Sorted 5000 elements in 83248 microseconds.
-Quick Sort Sorted 5000 elements in 1279 microseconds.
-Merge Sort Sorted 5000 elements in 1790 microseconds.
-Heap Sort Sorted 5000 elements in 2474 microseconds.
-Count Sort Sorted 5000 elements in 216 microseconds.
-Radix Sort Sorted 5000 elements in 672 microseconds.
+Best Case Scenario:
+
+Bubble Sort Sorted 5000 elements in 13 microseconds.
+Insertion Sort Sorted 5000 elements in 12 microseconds.
+Selection Sort Sorted 5000 elements in 25776 microseconds.
+Quick Sort Sorted 5000 elements in 134 microseconds.
+Merge Sort Sorted 5000 elements in 352 microseconds.
+Heap Sort Sorted 5000 elements in 726 microseconds.
+Count Sort Sorted 5000 elements in 82 microseconds.
+Radix Sort Sorted 5000 elements in 290 microseconds.
+
+Worst Case Scenario:
+
+Bubble Sort Sorted 5000 elements in 100971 microseconds.
+Insertion Sort Sorted 5000 elements in 34488 microseconds.
+Selection Sort Sorted 5000 elements in 29078 microseconds.
+Quick Sort Sorted 5000 elements in 253 microseconds.
+Merge Sort Sorted 5000 elements in 485 microseconds.
+Heap Sort Sorted 5000 elements in 1042 microseconds.
+Count Sort Sorted 5000 elements in 592 microseconds.
+Radix Sort Sorted 5000 elements in 1205 microseconds.
+
+Average Case Scenario:
+
+Bubble Sort Sorted 5000 elements in 99116 microseconds.
+Insertion Sort Sorted 5000 elements in 20605 microseconds.
+Selection Sort Sorted 5000 elements in 29458 microseconds.
+Quick Sort Sorted 5000 elements in 450 microseconds.
+Merge Sort Sorted 5000 elements in 593 microseconds.
+Heap Sort Sorted 5000 elements in 827 microseconds.
+Count Sort Sorted 5000 elements in 184 microseconds.
+Radix Sort Sorted 5000 elements in 369 microseconds.
+
 Elements: 10000
 
-Bubble Sort Sorted 10000 elements in 1106207 microseconds.
-Insertion Sort Sorted 10000 elements in 266040 microseconds.
-Selection Sort Sorted 10000 elements in 308178 microseconds.
-Quick Sort Sorted 10000 elements in 2874 microseconds.
-Merge Sort Sorted 10000 elements in 4353 microseconds.
-Heap Sort Sorted 10000 elements in 5685 microseconds.
-Count Sort Sorted 10000 elements in 468 microseconds.
-Radix Sort Sorted 10000 elements in 2416 microseconds.
+Best Case Scenario:
+
+Bubble Sort Sorted 10000 elements in 21 microseconds.
+Insertion Sort Sorted 10000 elements in 24 microseconds.
+Selection Sort Sorted 10000 elements in 105375 microseconds.
+Quick Sort Sorted 10000 elements in 286 microseconds.
+Merge Sort Sorted 10000 elements in 1234 microseconds.
+Heap Sort Sorted 10000 elements in 1591 microseconds.
+Count Sort Sorted 10000 elements in 197 microseconds.
+Radix Sort Sorted 10000 elements in 597 microseconds.
+
+Worst Case Scenario:
+
+Bubble Sort Sorted 10000 elements in 438981 microseconds.
+Insertion Sort Sorted 10000 elements in 137912 microseconds.
+Selection Sort Sorted 10000 elements in 110443 microseconds.
+Quick Sort Sorted 10000 elements in 305 microseconds.
+Merge Sort Sorted 10000 elements in 1174 microseconds.
+Heap Sort Sorted 10000 elements in 1465 microseconds.
+Count Sort Sorted 10000 elements in 643 microseconds.
+Radix Sort Sorted 10000 elements in 910 microseconds.
+
+Average Case Scenario:
+
+Bubble Sort Sorted 10000 elements in 352176 microseconds.
+Insertion Sort Sorted 10000 elements in 66351 microseconds.
+Selection Sort Sorted 10000 elements in 109209 microseconds.
+Quick Sort Sorted 10000 elements in 1043 microseconds.
+Merge Sort Sorted 10000 elements in 1851 microseconds.
+Heap Sort Sorted 10000 elements in 2188 microseconds.
+Count Sort Sorted 10000 elements in 351 microseconds.
+Radix Sort Sorted 10000 elements in 803 microseconds.
+
 Elements: 15000
 
-Bubble Sort Sorted 15000 elements in 2429622 microseconds.
-Insertion Sort Sorted 15000 elements in 638874 microseconds.
-Selection Sort Sorted 15000 elements in 772202 microseconds.
-Quick Sort Sorted 15000 elements in 4707 microseconds.
-Merge Sort Sorted 15000 elements in 8791 microseconds.
-Heap Sort Sorted 15000 elements in 9308 microseconds.
-Count Sort Sorted 15000 elements in 676 microseconds.
-Radix Sort Sorted 15000 elements in 2674 microseconds.
+Best Case Scenario:
+
+Bubble Sort Sorted 15000 elements in 39 microseconds.
+Insertion Sort Sorted 15000 elements in 36 microseconds.
+Selection Sort Sorted 15000 elements in 244294 microseconds.
+Quick Sort Sorted 15000 elements in 495 microseconds.
+Merge Sort Sorted 15000 elements in 2780 microseconds.
+Heap Sort Sorted 15000 elements in 2398 microseconds.
+Count Sort Sorted 15000 elements in 297 microseconds.
+Radix Sort Sorted 15000 elements in 1105 microseconds.
+
+Worst Case Scenario:
+
+Bubble Sort Sorted 15000 elements in 839441 microseconds.
+Insertion Sort Sorted 15000 elements in 299389 microseconds.
+Selection Sort Sorted 15000 elements in 247941 microseconds.
+Quick Sort Sorted 15000 elements in 501 microseconds.
+Merge Sort Sorted 15000 elements in 2873 microseconds.
+Heap Sort Sorted 15000 elements in 2553 microseconds.
+Count Sort Sorted 15000 elements in 1097 microseconds.
+Radix Sort Sorted 15000 elements in 1503 microseconds.
+
+Average Case Scenario:
+
+Bubble Sort Sorted 15000 elements in 813346 microseconds.
+Insertion Sort Sorted 15000 elements in 153091 microseconds.
+Selection Sort Sorted 15000 elements in 247989 microseconds.
+Quick Sort Sorted 15000 elements in 1539 microseconds.
+Merge Sort Sorted 15000 elements in 3607 microseconds.
+Heap Sort Sorted 15000 elements in 3218 microseconds.
+Count Sort Sorted 15000 elements in 346 microseconds.
+Radix Sort Sorted 15000 elements in 1177 microseconds.
+
 Elements: 25000
 
-Bubble Sort Sorted 25000 elements in 6640787 microseconds.
-Insertion Sort Sorted 25000 elements in 1573016 microseconds.
-Selection Sort Sorted 25000 elements in 2053547 microseconds.
-Quick Sort Sorted 25000 elements in 8822 microseconds.
-Merge Sort Sorted 25000 elements in 20397 microseconds.
-Heap Sort Sorted 25000 elements in 15400 microseconds.
-Count Sort Sorted 25000 elements in 1042 microseconds.
-Radix Sort Sorted 25000 elements in 3847 microseconds.
+Best Case Scenario:
+
+Bubble Sort Sorted 25000 elements in 66 microseconds.
+Insertion Sort Sorted 25000 elements in 60 microseconds.
+Selection Sort Sorted 25000 elements in 675267 microseconds.
+Quick Sort Sorted 25000 elements in 749 microseconds.
+Merge Sort Sorted 25000 elements in 7616 microseconds.
+Heap Sort Sorted 25000 elements in 4448 microseconds.
+Count Sort Sorted 25000 elements in 436 microseconds.
+Radix Sort Sorted 25000 elements in 1910 microseconds.
+
+Worst Case Scenario:
+
+Bubble Sort Sorted 25000 elements in 2390241 microseconds.
+Insertion Sort Sorted 25000 elements in 821724 microseconds.
+Selection Sort Sorted 25000 elements in 670026 microseconds.
+Quick Sort Sorted 25000 elements in 805 microseconds.
+Merge Sort Sorted 25000 elements in 7577 microseconds.
+Heap Sort Sorted 25000 elements in 3962 microseconds.
+Count Sort Sorted 25000 elements in 2267 microseconds.
+Radix Sort Sorted 25000 elements in 2381 microseconds.
+
+Average Case Scenario:
+
+Bubble Sort Sorted 25000 elements in 2129796 microseconds.
+Insertion Sort Sorted 25000 elements in 411153 microseconds.
+Selection Sort Sorted 25000 elements in 641135 microseconds.
+Quick Sort Sorted 25000 elements in 2644 microseconds.
+Merge Sort Sorted 25000 elements in 8995 microseconds.
+Heap Sort Sorted 25000 elements in 4934 microseconds.
+Count Sort Sorted 25000 elements in 455 microseconds.
+Radix Sort Sorted 25000 elements in 1888 microseconds.
+
 Elements: 35000
 
-Bubble Sort Sorted 35000 elements in 13164943 microseconds.
-Insertion Sort Sorted 35000 elements in 3021949 microseconds.
-Selection Sort Sorted 35000 elements in 4014034 microseconds.
-Quick Sort Sorted 35000 elements in 14682 microseconds.
-Merge Sort Sorted 35000 elements in 38452 microseconds.
-Heap Sort Sorted 35000 elements in 22471 microseconds.
-Count Sort Sorted 35000 elements in 1493 microseconds.
-Radix Sort Sorted 35000 elements in 5812 microseconds.
+Best Case Scenario:
+
+Bubble Sort Sorted 35000 elements in 76 microseconds.
+Insertion Sort Sorted 35000 elements in 84 microseconds.
+Selection Sort Sorted 35000 elements in 1256803 microseconds.
+Quick Sort Sorted 35000 elements in 1074 microseconds.
+Merge Sort Sorted 35000 elements in 15054 microseconds.
+Heap Sort Sorted 35000 elements in 6184 microseconds.
+Count Sort Sorted 35000 elements in 607 microseconds.
+Radix Sort Sorted 35000 elements in 2700 microseconds.
+
+Worst Case Scenario:
+
+Bubble Sort Sorted 35000 elements in 4380908 microseconds.
+Insertion Sort Sorted 35000 elements in 1651406 microseconds.
+Selection Sort Sorted 35000 elements in 1520084 microseconds.
+Quick Sort Sorted 35000 elements in 1179 microseconds.
+Merge Sort Sorted 35000 elements in 15314 microseconds.
+Heap Sort Sorted 35000 elements in 5675 microseconds.
+Count Sort Sorted 35000 elements in 2980 microseconds.
+Radix Sort Sorted 35000 elements in 3367 microseconds.
+
+Average Case Scenario:
+
+Bubble Sort Sorted 35000 elements in 4181838 microseconds.
+Insertion Sort Sorted 35000 elements in 800507 microseconds.
+Selection Sort Sorted 35000 elements in 1254668 microseconds.
+Quick Sort Sorted 35000 elements in 3783 microseconds.
+Merge Sort Sorted 35000 elements in 16917 microseconds.
+Heap Sort Sorted 35000 elements in 7338 microseconds.
+Count Sort Sorted 35000 elements in 609 microseconds.
+Radix Sort Sorted 35000 elements in 2672 microseconds.
+
 Elements: 50000
 
-Bubble Sort Sorted 50000 elements in 26679315 microseconds.
-Insertion Sort Sorted 50000 elements in 6437295 microseconds.
-Selection Sort Sorted 50000 elements in 8153186 microseconds.
-Quick Sort Sorted 50000 elements in 24561 microseconds.
-Merge Sort Sorted 50000 elements in 74431 microseconds.
-Heap Sort Sorted 50000 elements in 33969 microseconds.
-Count Sort Sorted 50000 elements in 1943 microseconds.
-Radix Sort Sorted 50000 elements in 8443 microseconds.
+Best Case Scenario:
+
+Bubble Sort Sorted 50000 elements in 109 microseconds.
+Insertion Sort Sorted 50000 elements in 120 microseconds.
+Selection Sort Sorted 50000 elements in 2551939 microseconds.
+Quick Sort Sorted 50000 elements in 1567 microseconds.
+Merge Sort Sorted 50000 elements in 31309 microseconds.
+Heap Sort Sorted 50000 elements in 8783 microseconds.
+Count Sort Sorted 50000 elements in 890 microseconds.
+Radix Sort Sorted 50000 elements in 3895 microseconds.
+
+Worst Case Scenario:
+
+Bubble Sort Sorted 50000 elements in 9340056 microseconds.
+Insertion Sort Sorted 50000 elements in 3596097 microseconds.
+Selection Sort Sorted 50000 elements in 2693952 microseconds.
+Quick Sort Sorted 50000 elements in 1704 microseconds.
+Merge Sort Sorted 50000 elements in 31115 microseconds.
+Heap Sort Sorted 50000 elements in 8438 microseconds.
+Count Sort Sorted 50000 elements in 4185 microseconds.
+Radix Sort Sorted 50000 elements in 4929 microseconds.
+
+Average Case Scenario:
+
+Bubble Sort Sorted 50000 elements in 9613766 microseconds.
+Insertion Sort Sorted 50000 elements in 1796776 microseconds.
+Selection Sort Sorted 50000 elements in 2665701 microseconds.
+Quick Sort Sorted 50000 elements in 5724 microseconds.
+Merge Sort Sorted 50000 elements in 34604 microseconds.
+Heap Sort Sorted 50000 elements in 13134 microseconds.
+Count Sort Sorted 50000 elements in 860 microseconds.
+Radix Sort Sorted 50000 elements in 4019 microseconds.
+
 Elements: 65000
 
-Bubble Sort Sorted 65000 elements in 47382102 microseconds.
-Insertion Sort Sorted 65000 elements in 10888628 microseconds.
-Selection Sort Sorted 65000 elements in 14236939 microseconds.
-Quick Sort Sorted 65000 elements in 36555 microseconds.
-Merge Sort Sorted 65000 elements in 123537 microseconds.
-Heap Sort Sorted 65000 elements in 47249 microseconds.
-Count Sort Sorted 65000 elements in 3020 microseconds.
-Radix Sort Sorted 65000 elements in 10469 microseconds.
+Best Case Scenario:
+
+Bubble Sort Sorted 65000 elements in 146 microseconds.
+Insertion Sort Sorted 65000 elements in 157 microseconds.
+Selection Sort Sorted 65000 elements in 4559797 microseconds.
+Quick Sort Sorted 65000 elements in 2070 microseconds.
+Merge Sort Sorted 65000 elements in 52513 microseconds.
+Heap Sort Sorted 65000 elements in 11892 microseconds.
+Count Sort Sorted 65000 elements in 1187 microseconds.
+Radix Sort Sorted 65000 elements in 5115 microseconds.
+
+Worst Case Scenario:
+
+Bubble Sort Sorted 65000 elements in 16638877 microseconds.
+Insertion Sort Sorted 65000 elements in 5956448 microseconds.
+Selection Sort Sorted 65000 elements in 4730365 microseconds.
+Quick Sort Sorted 65000 elements in 2254 microseconds.
+Merge Sort Sorted 65000 elements in 52653 microseconds.
+Heap Sort Sorted 65000 elements in 11327 microseconds.
+Count Sort Sorted 65000 elements in 5518 microseconds.
+Radix Sort Sorted 65000 elements in 6363 microseconds.
+
+Average Case Scenario:
+
+Bubble Sort Sorted 65000 elements in 27126762 microseconds.
+Insertion Sort Sorted 65000 elements in 3079098 microseconds.
+Selection Sort Sorted 65000 elements in 4601117 microseconds.
+Quick Sort Sorted 65000 elements in 7840 microseconds.
+Merge Sort Sorted 65000 elements in 56231 microseconds.
+Heap Sort Sorted 65000 elements in 14722 microseconds.
+Count Sort Sorted 65000 elements in 1126 microseconds.
+Radix Sort Sorted 65000 elements in 5075 microseconds.
+
 Elements: 75000
 
-Bubble Sort Sorted 75000 elements in 60798514 microseconds.
-Insertion Sort Sorted 75000 elements in 13853618 microseconds.
-Selection Sort Sorted 75000 elements in 18359820 microseconds.
-Quick Sort Sorted 75000 elements in 47427 microseconds.
-Merge Sort Sorted 75000 elements in 166399 microseconds.
-Heap Sort Sorted 75000 elements in 52175 microseconds.
-Count Sort Sorted 75000 elements in 3020 microseconds.
-Radix Sort Sorted 75000 elements in 12838 microseconds.
-Elements: 85000
+Best Case Scenario:
 
-Bubble Sort Sorted 85000 elements in 80004988 microseconds.
-Insertion Sort Sorted 85000 elements in 20558280 microseconds.
-Selection Sort Sorted 85000 elements in 24837656 microseconds.
-Quick Sort Sorted 85000 elements in 58630 microseconds.
-Merge Sort Sorted 85000 elements in 193988 microseconds.
-Heap Sort Sorted 85000 elements in 66187 microseconds.
-Count Sort Sorted 85000 elements in 5853 microseconds.
-Radix Sort Sorted 85000 elements in 15841 microseconds.
+Bubble Sort Sorted 75000 elements in 169 microseconds.
+Insertion Sort Sorted 75000 elements in 182 microseconds.
+Selection Sort Sorted 75000 elements in 5912872 microseconds.
+Quick Sort Sorted 75000 elements in 2431 microseconds.
+Merge Sort Sorted 75000 elements in 72903 microseconds.
+Heap Sort Sorted 75000 elements in 16804 microseconds.
+Count Sort Sorted 75000 elements in 1651 microseconds.
+Radix Sort Sorted 75000 elements in 6226 microseconds.
+
+Worst Case Scenario:
+
+Bubble Sort Sorted 75000 elements in 22061426 microseconds.
+Insertion Sort Sorted 75000 elements in 8187362 microseconds.
+Selection Sort Sorted 75000 elements in 23325120 microseconds.
+Quick Sort Sorted 75000 elements in 2568 microseconds.
+Merge Sort Sorted 75000 elements in 71564 microseconds.
+Heap Sort Sorted 75000 elements in 12998 microseconds.
+Count Sort Sorted 75000 elements in 6634 microseconds.
+Radix Sort Sorted 75000 elements in 8640 microseconds.
+
+Average Case Scenario:
+
+Bubble Sort Sorted 75000 elements in 999999999 microseconds.
+Insertion Sort Sorted 75000 elements in 4343784 microseconds.
+Selection Sort Sorted 75000 elements in 8198802 microseconds.
+Quick Sort Sorted 75000 elements in 13523 microseconds.
+Merge Sort Sorted 75000 elements in 86666 microseconds.
+Heap Sort Sorted 75000 elements in 25077 microseconds.
+Count Sort Sorted 75000 elements in 2006 microseconds.
+Radix Sort Sorted 75000 elements in 7970 microseconds.

@@ -1,18 +1,19 @@
-#include <iostream>
-#include <vector>
+l1.quickSort();
+    // l1.display();
 
-using namespace std;
+    // l1.deletebegin();
+    // l1.display();
 
-int main() {
-    int x, y;
-int g = extended_euclidean(a, m, x, y);
-if (g != 1) {
-    cout << "No solution!";
-}
-else {
-    x = (x % m + m) % m;
-    cout << x << endl;
-}
+    // l1.deleteEnd();
+    // l1.display();
 
-    return 0;
-}
+    // l1.deleteatposition(3);
+    // l1.display();
+
+    // l1.deletebyvalue(2);
+    // l1.display();
+
+    // l1.insertBegin(5);
+    // l1.insertAtPosition(1,2);
+    // l1.insertEnd(7);
+    // l1.display();

@@ -266,8 +266,8 @@ int main(){
     }
     cout<<"Enter the value you would like to find: "<<endl;
     cin>>value;
-    arr.traversearray();
-    cout<<arr.binary_search(value)<<endl;
+    //arr.traversearray();
+    //cout<<arr.binary_search(value)<<endl;
     cout<<arr.lower_bound(value)<<endl;
     cout<<arr.upper_bound(value)<<endl;
     cout<<arr.meta_binary_search(value)<<endl;

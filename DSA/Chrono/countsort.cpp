@@ -3,7 +3,7 @@
  
 using namespace std;
 
-void CountSort(vector<int>&array, int size)
+void CountSort(int array[], int size)
 {
     int max = array[0];
 
@@ -24,7 +24,7 @@ void CountSort(vector<int>&array, int size)
         count[i] += count[i - 1];
     }
 
-    for (int i = size - 1; i >= 0; i--) // Find the index of each element of the original array in count array, and
+    for (int i = 0; i < size; i++) // Find the index of each element of the original array in count array, and
                                         // place the elements in output array
     {
         output[count[array[i]] - 1] = array[i];
@@ -37,9 +37,12 @@ void CountSort(vector<int>&array, int size)
     }
 }
 
-int CountSortbase(vector<int>&arr, int size){
+int CountSortbase(int arr[], int size){
 
-    vector<int>temp = arr;
+    int temp[size];
+    for(int i = 0;i<size;i++){
+        temp[i] = arr[i];
+    }
 
     auto start = chrono::high_resolution_clock::now();
 
@@ -50,5 +53,19 @@ int CountSortbase(vector<int>&arr, int size){
     auto duration = chrono::duration_cast<chrono::microseconds>(end - start).count();
 
     return duration;
+}
+
+int main(){
+    int arr[] = {1,5,6,2,6,7,2,8,6,4};
+    int size = sizeof(arr)/sizeof(arr[0]);
+    for(int i = 0;i<size;i++){
+        cout<<arr[i]<<" ";
+    }
+    cout<<endl;
+    CountSort(arr,size);
+    for(int i = 0;i<size;i++){
+        cout<<arr[i]<<" ";
+    }
+    cout<<endl;
 }
  

@@ -3,7 +3,9 @@
  
 using namespace std;
 
-void BubbleSort(vector<int>&arr, int size)
+
+
+void BubbleSort(int arr[], int size)
 {
     for (int i = 0; i < size - 1; i++)
     {
@@ -23,9 +25,12 @@ void BubbleSort(vector<int>&arr, int size)
     }
 }
 
-int BubbleSortbase(vector<int>&arr, int size){
+int BubbleSortbase(int array[], int size){
     
-    vector<int>temp = arr;
+    int temp[size];
+    for(int i = 0;i<size;i++){
+        temp[i] = array[i];
+    }
 
     auto start = chrono::high_resolution_clock::now();
 

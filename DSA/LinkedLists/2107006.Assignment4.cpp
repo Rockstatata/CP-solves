@@ -35,6 +35,9 @@ int main(){
     l1.insertEnd(7);
     l1.display(); 
 
-    l1.mergeSort(l1.gethead());
-    l1.display();  
+    //l1.mergeSort(l1.gethead());
+    //l1.display();  
+
+    l1._quickSort(l1.gethead(),l1.gettail());
+    l1.display();
 }
