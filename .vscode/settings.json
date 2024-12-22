@@ -1,5 +1,6 @@
 {
     "files.associations": {
+<<<<<<< HEAD
         "iostream": "cpp",
         "deque": "cpp",
         "string": "cpp",
@@ -17,6 +18,14 @@
         "span": "cpp",
         "stacktrace": "cpp",
         "regex": "cpp",
+=======
+        "barrier": "cpp",
+        "chrono": "cpp",
+        "random": "cpp",
+        "latch": "cpp",
+        "limits": "cpp",
+        "semaphore": "cpp",
+>>>>>>> dcda3b8a3447ac919158a5bf1cf8159068e5b789
         "valarray": "cpp"
     }
 }
